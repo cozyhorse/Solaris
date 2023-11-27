@@ -1,0 +1,83 @@
+*{ 
+    margin: 0;
+    padding: 0; 
+    box-sizing:border-box; 
+}
+
+
+body {
+    width: 1920px;
+    height: 1000px;
+    border: solid purple 1px;
+    background-color: rgb(27, 27, 166) ;
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+    align-self: flex-end;
+}
+
+
+.planet {
+    border-radius: 50%;
+}
+
+.planetWrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+
+.planet-1{
+    background-color: rgb(255, 208, 41);
+    height: 600px;
+    width: 600px;
+    
+    
+
+}
+.planet-2{
+    background-color: rgb(140, 138, 132);
+    width: 14px;
+    height: 14px;
+}
+.planet-3{
+    background-color:rgb(231, 204, 203);
+    width: 26px;
+    height: 26px;
+}
+.planet-4{
+    background-color: rgb(65, 142, 213);
+    height: 28px;
+    width: 28px;
+}
+.planet-5{
+    background-color: rgb(239, 95, 95);
+    width: 14px;
+    height: 14px;
+}
+.planet-6{
+    background-color: rgb(226, 148, 104);
+    width: 188px;
+    height: 188px;
+}
+.planet-7{
+    background-color: rgb(199, 170, 114);
+    width: 144px;
+    height: 144px;
+}
+.planet-8{
+    background-color: rgb(201, 212, 241);
+    width: 66px;
+    height: 66px;
+}
+.planet-9{
+    background-color: rgb(122, 145, 167);
+    width: 66px;
+    height: 66px;
+}
