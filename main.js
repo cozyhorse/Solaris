@@ -37,7 +37,7 @@ const getPlanet = async (apiKey) => {
 
 const data = await resp.json()
 console.log("planets", data.bodies);
-
+//loop through key-value pair using .entries() on the array and assign them using "index" and "item"
 for (const [index, item] of data.bodies.entries()) {
     console.log(`index: ${index}. Item: ${item.name}`);
     const planet = document.createElement("div")
@@ -49,6 +49,7 @@ for (const [index, item] of data.bodies.entries()) {
 
     planet.addEventListener("click", (event) => {
         console.log(event.target);
+        //Get info on planet based on clicked index
         getInfo(index,API_KEY)
     })
     
