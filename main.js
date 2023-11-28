@@ -16,7 +16,7 @@ const sidePlanet = document.querySelector(".blue-sun")
 
 let planetNumber = 1
 
-//Hämtar nycklen och lägger den i en variabel
+//Get the API key and place it in a variable
 let API_KEY = fetch(
   "https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com/keys",
   {
@@ -31,16 +31,18 @@ let API_KEY = fetch(
 
 
 //Pga att API_KEY returnerar en promise så måste vi resolve:a den först innan vi får nyckeln vilket vi kan göra med then.
-//Sen placera in nyckeln som ett argument i funktionen där vi vill använda den.
+//We must resolve API_KEY first before we use it becuase API_KEY returns a promise.
+//Pass key as an argument in the get planet function to initialize page
 API_KEY.then(requestedKey => {
     console.log("requestedKey: ", requestedKey);
+    //The "initialize" page happens here
     getPlanet(requestedKey);
 
 })
 
 
 
-
+//Function that creates and prints out the planets.
 const getPlanet = async (apiKey) => {
     const API_KEY = apiKey
     let resp = await fetch('https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com/bodies', {
@@ -112,15 +114,6 @@ const getInfo = async (index, apikey) => {
     moonList.textContent = uniqueMoons.join(" ").replaceAll(" ", ", ");
     //Changes color on the planet based on clicked index.
     changeColorOnPlanet(index);
-
-
-
-
-
-    
-
-  
-
 
 }
 
