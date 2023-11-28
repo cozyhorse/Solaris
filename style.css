@@ -9,13 +9,37 @@ body {
     width: 1920px;
     height: 1000px;
     border: solid purple 1px;
-    background-color: rgb(27, 27, 166) ;
+    background: rgb(2,0,36);
+    background: linear-gradient(270deg, rgba(2,0,36,1) 3%, rgba(6,5,81,1) 50%, rgba(8,36,139,1) 74%, rgba(0,142,255,1) 100%);
+    overflow: hidden;
+}
+
+.galaxy-wrapper{
     display: flex;
     flex-direction: column;
+    padding: 2rem;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
 }
 
 .header{
     align-self: flex-end;
+    transform: translateX(-100px);
+}
+
+.header h1 {
+    color: rgba(255, 255, 255, 1);
+    font-size: 60px ;
+    letter-spacing: 0.4rem;
+}
+.header h2 {
+    
+    color: rgba(255, 208, 41, 1);
+    font-size: 24px;
+    letter-spacing: 0.8rem;
 }
 
 
@@ -29,14 +53,17 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transform: translateY(-100px);
 
 }
 
 
 .planet-1{
-    background-color: rgb(255, 208, 41);
-    height: 600px;
-    width: 600px;
+    background-color: rgb(255, 208, 41, 0.94);
+    box-shadow: 56px 0px 70px 100px rgb(255, 208, 41, 0.3);
+    height: 1000px;
+    width: 1000px;
+    margin-left: -760px;
     
     
 
