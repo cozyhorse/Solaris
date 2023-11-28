@@ -45,7 +45,9 @@ for (const [index, item] of data.bodies.entries()) {
     planet.append(planetName)
     planet.classList.add(`planet-${planetNumber++}`)
     planet.classList.add("planet")
+    
     planetWrapper?.append(planet)
+    planet.href = "./planet.html"
 
     planet.addEventListener("click", (event) => {
         console.log(event.target);
