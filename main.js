@@ -11,6 +11,7 @@ const moonList = document.querySelector(".moons");
 const galaxyWrapper = document.querySelector(".galaxy-wrapper");
 const infoWrapper = document.querySelector(".wrapper");
 const backBtn = document.querySelector(".back")
+const sidePlanet = document.querySelector(".blue-sun")
 
 
 let planetNumber = 1
@@ -108,7 +109,11 @@ const getInfo = async (index, apikey) => {
     const uniqueMoons = [...new Set(data.bodies[index].moons)];
     console.log("dataMoons", uniqueMoons);
     
-    moonList.textContent = uniqueMoons.join(" ").replaceAll(" ", ", ")
+    moonList.textContent = uniqueMoons.join(" ").replaceAll(" ", ", ");
+    //Changes color on the planet based on clicked index.
+    changeColorOnPlanet(index);
+
+
 
 
 
@@ -119,7 +124,62 @@ const getInfo = async (index, apikey) => {
 
 }
 
+//Change color on planet using switch-case
+const changeColorOnPlanet = (index) => {
 
+  switch(index){
+    case 0:
+      console.log("index", index);
+      sidePlanet.style.background = "rgb(255, 208, 41, 0.94)";
+      sidePlanet.style.boxShadow = "56px 0px 70px 100px rgba(255, 208, 41, 0.3)";
+      break
+    case 1:
+      console.log("index", index);
+      sidePlanet.style.background = "rgb(140, 138, 132)";
+      sidePlanet.style.boxShadow = "56px 0px 70px 100px rgb(140, 138, 132, 0.3)";
+      break
+    case 2:
+      console.log("index", index);
+      sidePlanet.style.background = "rgb(231, 204, 203)";
+      sidePlanet.style.boxShadow = "56px 0px 70px 100px rgb(231, 204, 203, 0.3)";
+      break
+    case 3:
+      console.log("index", index);
+      sidePlanet.style.background = "rgb(65, 142, 213)";
+      sidePlanet.style.boxShadow = "56px 0px 70px 100px rgba(65, 142, 213, 0.3)";
+      break
+    case 4:
+      console.log("index", index);
+      sidePlanet.style.background = "rgb(239, 95, 95)";
+      sidePlanet.style.boxShadow = "56px 0px 70px 100px rgba(239, 95, 95, 0.3)";
+      break
+    case 5:
+      console.log("index", index);
+      sidePlanet.style.background = "rgb(226, 148, 104)";
+      sidePlanet.style.boxShadow = "56px 0px 70px 100px rgba(226, 148, 104, 0.3)";
+      break
+    case 6:
+      console.log("index", index);
+      sidePlanet.style.background = "rgb(199, 170, 114)";
+      sidePlanet.style.boxShadow = "56px 0px 70px 100px rgba(199, 170, 114, 0.3)";
+      break
+    case 7:
+      console.log("index", index);
+      sidePlanet.style.background = "rgb(201, 212, 241)";
+      sidePlanet.style.boxShadow = "56px 0px 70px 100px rgba(201, 212, 241, 0.3)";
+      break
+    case 8:
+      console.log("index", index);
+      sidePlanet.style.background = "rgb(122, 145, 167)";
+      sidePlanet.style.boxShadow = "56px 0px 70px 100px rgba(122, 145, 167, 0.3)";
+      break
+  }
+
+
+
+}
+
+//Back button
 backBtn.addEventListener("click", () => {
   galaxyWrapper.classList.remove("hide")
   infoWrapper.classList.add("hide")
