@@ -96,15 +96,22 @@ const getInfo = async (index, apikey) => {
     console.log("Data.Moons", data.bodies[index].moons);
     console.log("Data.temp", data.bodies[index].temp.day);//night
     console.log("Data.temp", data.bodies[index].temp.night);//night
-    
+    //set values
     planetName.textContent = `${data.bodies[index].name}`;
     planetLatinName.textContent = `${data.bodies[index].latinName}`;
     planetDescription.textContent = data.bodies[index].desc;
     fromSun.textContent = `${data.bodies[index].distance} KM`;
     circumference.textContent = `${data.bodies[index].circumference} KM`;
-    moonList.textContent =  data.bodies[index].moons;
     maxTemp.textContent = `${data.bodies[index].temp.day}C`;
     minTemp.textContent = `${data.bodies[index].temp.night}C`;
+    //Using set constructor to store unique values and stores it in "uniqueMoons" as a new array with doubles removed
+    const uniqueMoons = [...new Set(data.bodies[index].moons)];
+    console.log("dataMoons", uniqueMoons);
+    
+    moonList.textContent = uniqueMoons.join(" ").replaceAll(" ", ", ")
+
+
+
     
 
   
