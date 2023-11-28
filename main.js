@@ -11,7 +11,7 @@ const moonList = document.querySelector(".moons");
 const galaxyWrapper = document.querySelector(".galaxy-wrapper");
 const infoWrapper = document.querySelector(".wrapper");
 const backBtn = document.querySelector(".back")
-const sidePlanet = document.querySelector(".blue-sun")
+const sidePlanet = document.querySelector(".bigplanet")
 
 
 let planetNumber = 1
