@@ -4,15 +4,6 @@
     box-sizing:border-box; 
 }
 
-body {
-    background: rgb(2,0,36);
-    background: linear-gradient(270deg, rgba(2,0,36,1) 3%, rgba(6,5,81,1) 50%, rgba(8,36,139,1) 74%, rgba(0,142,255,1) 100%);
-    margin: auto;
-    width: 1920px;
-    height: 1000px;
-    overflow: hidden;
-
-}
 
 li {
     list-style-type: none;
