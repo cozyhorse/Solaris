@@ -55,12 +55,11 @@ for (const [index, item] of data.bodies.entries()) {
     const planet = document.createElement("div")
     const link = document.createElement("a")
     // const planetName = item.name
-    link.append(planet)
     // planet.append(planetName)
     planet.classList.add(`planet-${planetNumber++}`)
     planet.classList.add("planet")
     
-    planetWrapper?.append(link)
+    planetWrapper?.append(planet)
 
     planet.addEventListener("click", (event) => {
       console.log(event.target);
@@ -98,14 +97,15 @@ const getInfo = async (index, apikey) => {
     console.log("Data.temp", data.bodies[index].temp.day);//night
     console.log("Data.temp", data.bodies[index].temp.night);//night
     
-    planetName.textContent = data.bodies[index].name;
-    planetLatinName.textContent = data.bodies[index].latinName;
+    planetName.textContent = `${data.bodies[index].name}`;
+    planetLatinName.textContent = `${data.bodies[index].latinName}`;
     planetDescription.textContent = data.bodies[index].desc;
-    fromSun.textContent = data.bodies[index].distance;
-    circumference.textContent = data.bodies[index].circumference;
-    console.log("Data.Moons", data.bodies[index].moons);
-    maxTemp.textContent = data.bodies[index].temp.day;
-    minTemp.textContent = data.bodies[index].temp.night;
+    fromSun.textContent = `${data.bodies[index].distance} KM`;
+    circumference.textContent = `${data.bodies[index].circumference} KM`;
+    moonList.textContent =  data.bodies[index].moons;
+    maxTemp.textContent = `${data.bodies[index].temp.day}C`;
+    minTemp.textContent = `${data.bodies[index].temp.night}C`;
+    
 
   
 
