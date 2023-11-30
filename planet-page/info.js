@@ -85,5 +85,5 @@ changeColorOnPlanet(planetIndex);
 //Go back to index.html and clear localStorage
 planetBackBtn.addEventListener("click", () => {
     localStorage.clear()
-    window.location.href = "./index.html"
+    window.location.href = "../index.html"
 })

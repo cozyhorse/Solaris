@@ -112,7 +112,9 @@ const getInfo = async (index, apikey) => {
     localStorage.setItem("planet-moons", uniqueMoons)
     localStorage.setItem("planet-index", planetIndex)
     console.log(localStorage);
-    window.location.href = "./planet.html"
+
+    //redirect to planet-page
+    window.location.href = "./planet-page/planet.html"
   
 
 }
