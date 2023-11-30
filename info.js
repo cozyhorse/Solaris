@@ -1,4 +1,4 @@
-//test
+
 const planetName = document.querySelector("#planet-name");
 const planetLatinName = document.querySelector(".planet-latin-name");
 const planetDescription = document.querySelector(".description");
@@ -20,10 +20,11 @@ planetFromSun.textContent = localStorage.getItem("planet-from-sun")
 planetMaxTemp.textContent = localStorage.getItem("planet-max-temp")
 planetMinTemp.textContent = localStorage.getItem("planet-min-temp")
 planetMoonList.textContent = localStorage.getItem("planet-moons")
+//convert to number
 planetIndex = Number(localStorage.getItem("planet-index"));
 console.log("planetIndexUpdate", planetIndex);
 
-
+//Change color on "side planet" based on index number
 const changeColorOnPlanet = (index) => {
 
     switch(index){
@@ -78,10 +79,10 @@ const changeColorOnPlanet = (index) => {
   
   }
 
-
+//Change "side planet" function
 changeColorOnPlanet(planetIndex);
 
-
+//Go back to index.html and clear localStorage
 planetBackBtn.addEventListener("click", () => {
     localStorage.clear()
     window.location.href = "./index.html"

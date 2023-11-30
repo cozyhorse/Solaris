@@ -1,17 +1,8 @@
 const planetList = document.querySelector(".planets");
 const planetWrapper = document.querySelector(".planetWrapper");
-// const planetName = document.querySelector(".planet-name");
-// const planetLatinName = document.querySelector(".planet-latin-name");
-// const planetDescription = document.querySelector(".description");
-// const circumference = document.querySelector(".circumference");
-// const fromSun = document.querySelector(".from-sun");
-// const maxTemp = document.querySelector(".max-temp");
-// const minTemp = document.querySelector(".min-temp");
-// const moonList = document.querySelector(".moons");
 const galaxyWrapper = document.querySelector(".galaxy-wrapper");
 const infoWrapper = document.querySelector(".wrapper");
-const backBtn = document.querySelector(".back")
-const sidePlanet = document.querySelector(".bigplanet")
+
 
 
 let planetNumber = 1
@@ -54,33 +45,25 @@ const data = await resp.json()
 console.log("planets", data.bodies);
 //loop through key-value pair using .entries() on the array and assign them using "index" and "item"
 for (const [index, item] of data.bodies.entries()) {
+  
     console.log(`index: ${index}. Item: ${item.name}`);
+    createRing()
     const planet = document.createElement("div")
-    const link = document.createElement("a")
-    // const planetName = item.name
+    
     // planet.append(planetName) and add +1 on every class made
     planet.classList.add(`planet-${planetNumber++}`)
     planet.classList.add("planet")
-    
+
     planetWrapper?.append(planet)
+    
+ 
       //click event on the created "planet"
     planet.addEventListener("click", (event) => {
       console.log(event.target);
 
-      //Empty every field------
-      // planetName.textContent = "";
-      // planetLatinName.textContent = "";
-      // planetDescription.textContent = "";
-      // fromSun.textContent = "";
-      // circumference.textContent = "";
-      // maxTemp.textContent = "";
-      // minTemp.textContent = "";
 
       //Get info on planet based on clicked index
       getInfo(index, API_KEY);
-      // galaxyWrapper.classList.add("hide")
-      // infoWrapper.classList.remove("hide")
-      
 
     });
     
@@ -106,15 +89,6 @@ const getInfo = async (index, apikey) => {
     // console.log("Data.temp", data.bodies[index].temp.night);//night
 
     //set values
-    // planetName.textContent = `${data.bodies[index].name}`;
-    // planetLatinName.textContent = `${data.bodies[index].latinName}`;
-    // planetDescription.textContent = data.bodies[index].desc;
-    // fromSun.textContent = `${data.bodies[index].distance} KM`;
-    // circumference.textContent = `${data.bodies[index].circumference} KM`;
-    // maxTemp.textContent = `${data.bodies[index].temp.day}C`;
-    // minTemp.textContent = `${data.bodies[index].temp.night}C`;
-
-    //NEW
     let planetName = `${data.bodies[index].name}`;
     let planetLatinName = `${data.bodies[index].latinName}`;
     let planetDescription = data.bodies[index].desc;
@@ -127,12 +101,7 @@ const getInfo = async (index, apikey) => {
     let uniqueMoons = [...new Set(data.bodies[index].moons)].join(" ").replaceAll(" ", ", ");
     console.log("dataMoons", uniqueMoons);
     
-    // moonList.textContent = uniqueMoons.join(" ").replaceAll(" ", ", ");
-    //Changes color on the planet based on clicked index.
-    //changeColorOnPlanet(index);
-
-    //test
-    
+    //Transfer to localStorage
     localStorage.setItem("planet-name", planetName)
     localStorage.setItem("planet-latin-name", planetLatinName)
     localStorage.setItem("planet-description", planetDescription)
@@ -148,68 +117,15 @@ const getInfo = async (index, apikey) => {
 
 }
 
-//Change color on planet using switch-case
-const changeColorOnPlanet = (index) => {
-
-  switch(index){
-    case 0:
-      console.log("index", index);
-      sidePlanet.style.background = "rgb(255, 208, 41, 0.94)";
-      sidePlanet.style.boxShadow = "56px 0px 70px 100px rgba(255, 208, 41, 0.3)";
-      break
-    case 1:
-      console.log("index", index);
-      sidePlanet.style.background = "rgb(140, 138, 132)";
-      sidePlanet.style.boxShadow = "56px 0px 70px 100px rgb(140, 138, 132, 0.3)";
-      break
-    case 2:
-      console.log("index", index);
-      sidePlanet.style.background = "rgb(231, 204, 203)";
-      sidePlanet.style.boxShadow = "56px 0px 70px 100px rgb(231, 204, 203, 0.3)";
-      break
-    case 3:
-      console.log("index", index);
-      sidePlanet.style.background = "rgb(65, 142, 213)";
-      sidePlanet.style.boxShadow = "56px 0px 70px 100px rgba(65, 142, 213, 0.3)";
-      break
-    case 4:
-      console.log("index", index);
-      sidePlanet.style.background = "rgb(239, 95, 95)";
-      sidePlanet.style.boxShadow = "56px 0px 70px 100px rgba(239, 95, 95, 0.3)";
-      break
-    case 5:
-      console.log("index", index);
-      sidePlanet.style.background = "rgb(226, 148, 104)";
-      sidePlanet.style.boxShadow = "56px 0px 70px 100px rgba(226, 148, 104, 0.3)";
-      break
-    case 6:
-      console.log("index", index);
-      sidePlanet.style.background = "rgb(199, 170, 114)";
-      sidePlanet.style.boxShadow = "56px 0px 70px 100px rgba(199, 170, 114, 0.3)";
-      break
-    case 7:
-      console.log("index", index);
-      sidePlanet.style.background = "rgb(201, 212, 241)";
-      sidePlanet.style.boxShadow = "56px 0px 70px 100px rgba(201, 212, 241, 0.3)";
-      break
-    case 8:
-      console.log("index", index);
-      sidePlanet.style.background = "rgb(122, 145, 167)";
-      sidePlanet.style.boxShadow = "56px 0px 70px 100px rgba(122, 145, 167, 0.3)";
-      break
-  }
-
-
+const createRing = () => {
+const saturnusRing = document.createElement("div")
+const saturnus = document.querySelector(".planet-7")
+saturnusRing.classList.add("ring")
+saturnus?.append(saturnusRing)
 
 }
 
-//Back button
-// backBtn.addEventListener("click", () => {
-//   galaxyWrapper.classList.remove("hide")
-//   infoWrapper.classList.add("hide")
-//   //test
-//   localStorage.clear();
-// })
+
 
 
 
