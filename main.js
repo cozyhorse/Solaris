@@ -12,10 +12,10 @@ const galaxyWrapper = document.querySelector(".galaxy-wrapper");
 const infoWrapper = document.querySelector(".wrapper");
 const backBtn = document.querySelector(".back")
 const sidePlanet = document.querySelector(".bigplanet")
-
+let testValue = "";
 
 let planetNumber = 1
-
+localStorage.clear();
 //Get the API key and place it in a variable
 let API_KEY = fetch(
   "https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com/keys",
@@ -80,6 +80,8 @@ for (const [index, item] of data.bodies.entries()) {
       getInfo(index, API_KEY);
       galaxyWrapper.classList.add("hide")
       infoWrapper.classList.remove("hide")
+      
+
     });
     
 }
@@ -93,14 +95,16 @@ const getInfo = async (index, apikey) => {
     }))
 
     const data = await response.json()
-    console.log("Data.name", data.bodies[index].name);
-    console.log("Data.temp", data.bodies[index].latinName);//latin namn
-    console.log("Data.desc", data.bodies[index].desc);
-    console.log("Data.distance", data.bodies[index].distance)
-    console.log("Data.circumference", data.bodies[index].circumference);
-    console.log("Data.Moons", data.bodies[index].moons);
-    console.log("Data.temp", data.bodies[index].temp.day);//night
-    console.log("Data.temp", data.bodies[index].temp.night);//night
+
+    // console.log("Data.name", data.bodies[index].name);
+    // console.log("Data.temp", data.bodies[index].latinName);//latin namn
+    // console.log("Data.desc", data.bodies[index].desc);
+    // console.log("Data.distance", data.bodies[index].distance)
+    // console.log("Data.circumference", data.bodies[index].circumference);
+    // console.log("Data.Moons", data.bodies[index].moons);
+    // console.log("Data.temp", data.bodies[index].temp.day);//night
+    // console.log("Data.temp", data.bodies[index].temp.night);//night
+
     //set values
     planetName.textContent = `${data.bodies[index].name}`;
     planetLatinName.textContent = `${data.bodies[index].latinName}`;
@@ -116,6 +120,13 @@ const getInfo = async (index, apikey) => {
     moonList.textContent = uniqueMoons.join(" ").replaceAll(" ", ", ");
     //Changes color on the planet based on clicked index.
     changeColorOnPlanet(index);
+
+    //test
+    testValue = `${data.bodies[index].name}`
+    localStorage.setItem("planet-name", testValue)
+    console.log(localStorage);
+    window.location.href = "./planet.html"
+  
 
 }
 
@@ -178,6 +189,8 @@ const changeColorOnPlanet = (index) => {
 backBtn.addEventListener("click", () => {
   galaxyWrapper.classList.remove("hide")
   infoWrapper.classList.add("hide")
+  //test
+  localStorage.clear();
 })
 
 
