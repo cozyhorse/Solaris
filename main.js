@@ -1,18 +1,18 @@
 const planetList = document.querySelector(".planets");
 const planetWrapper = document.querySelector(".planetWrapper");
-const planetName = document.querySelector(".planet-name");
-const planetLatinName = document.querySelector(".planet-latin-name");
-const planetDescription = document.querySelector(".description");
-const circumference = document.querySelector(".circumference");
-const fromSun = document.querySelector(".from-sun");
-const maxTemp = document.querySelector(".max-temp");
-const minTemp = document.querySelector(".min-temp");
-const moonList = document.querySelector(".moons");
+// const planetName = document.querySelector(".planet-name");
+// const planetLatinName = document.querySelector(".planet-latin-name");
+// const planetDescription = document.querySelector(".description");
+// const circumference = document.querySelector(".circumference");
+// const fromSun = document.querySelector(".from-sun");
+// const maxTemp = document.querySelector(".max-temp");
+// const minTemp = document.querySelector(".min-temp");
+// const moonList = document.querySelector(".moons");
 const galaxyWrapper = document.querySelector(".galaxy-wrapper");
 const infoWrapper = document.querySelector(".wrapper");
 const backBtn = document.querySelector(".back")
 const sidePlanet = document.querySelector(".bigplanet")
-let testValue = "";
+
 
 let planetNumber = 1
 localStorage.clear();
@@ -67,19 +67,19 @@ for (const [index, item] of data.bodies.entries()) {
     planet.addEventListener("click", (event) => {
       console.log(event.target);
 
-      //Empty every field
-      planetName.textContent = "";
-      planetLatinName.textContent = "";
-      planetDescription.textContent = "";
-      fromSun.textContent = "";
-      circumference.textContent = "";
-      maxTemp.textContent = "";
-      minTemp.textContent = "";
+      //Empty every field------
+      // planetName.textContent = "";
+      // planetLatinName.textContent = "";
+      // planetDescription.textContent = "";
+      // fromSun.textContent = "";
+      // circumference.textContent = "";
+      // maxTemp.textContent = "";
+      // minTemp.textContent = "";
 
       //Get info on planet based on clicked index
       getInfo(index, API_KEY);
-      galaxyWrapper.classList.add("hide")
-      infoWrapper.classList.remove("hide")
+      // galaxyWrapper.classList.add("hide")
+      // infoWrapper.classList.remove("hide")
       
 
     });
@@ -106,24 +106,42 @@ const getInfo = async (index, apikey) => {
     // console.log("Data.temp", data.bodies[index].temp.night);//night
 
     //set values
-    planetName.textContent = `${data.bodies[index].name}`;
-    planetLatinName.textContent = `${data.bodies[index].latinName}`;
-    planetDescription.textContent = data.bodies[index].desc;
-    fromSun.textContent = `${data.bodies[index].distance} KM`;
-    circumference.textContent = `${data.bodies[index].circumference} KM`;
-    maxTemp.textContent = `${data.bodies[index].temp.day}C`;
-    minTemp.textContent = `${data.bodies[index].temp.night}C`;
+    // planetName.textContent = `${data.bodies[index].name}`;
+    // planetLatinName.textContent = `${data.bodies[index].latinName}`;
+    // planetDescription.textContent = data.bodies[index].desc;
+    // fromSun.textContent = `${data.bodies[index].distance} KM`;
+    // circumference.textContent = `${data.bodies[index].circumference} KM`;
+    // maxTemp.textContent = `${data.bodies[index].temp.day}C`;
+    // minTemp.textContent = `${data.bodies[index].temp.night}C`;
+
+    //NEW
+    let planetName = `${data.bodies[index].name}`;
+    let planetLatinName = `${data.bodies[index].latinName}`;
+    let planetDescription = data.bodies[index].desc;
+    let planetFromSun = `${data.bodies[index].distance} KM`;
+    let planetCircumference = `${data.bodies[index].circumference} KM`;
+    let planetMaxTemp = `${data.bodies[index].temp.day}C`;
+    let planetMinTemp = `${data.bodies[index].temp.night}C`;
+    let planetIndex = index;
     //Using Set constructor to store unique values in the array and store it in "uniqueMoons" as a new array with doubles removed
-    const uniqueMoons = [...new Set(data.bodies[index].moons)];
+    let uniqueMoons = [...new Set(data.bodies[index].moons)].join(" ").replaceAll(" ", ", ");
     console.log("dataMoons", uniqueMoons);
     
-    moonList.textContent = uniqueMoons.join(" ").replaceAll(" ", ", ");
+    // moonList.textContent = uniqueMoons.join(" ").replaceAll(" ", ", ");
     //Changes color on the planet based on clicked index.
-    changeColorOnPlanet(index);
+    //changeColorOnPlanet(index);
 
     //test
-    testValue = `${data.bodies[index].name}`
-    localStorage.setItem("planet-name", testValue)
+    
+    localStorage.setItem("planet-name", planetName)
+    localStorage.setItem("planet-latin-name", planetLatinName)
+    localStorage.setItem("planet-description", planetDescription)
+    localStorage.setItem("planet-from-sun", planetFromSun)
+    localStorage.setItem("planet-circumference", planetCircumference)
+    localStorage.setItem("planet-max-temp", planetMaxTemp)
+    localStorage.setItem("planet-min-temp", planetMinTemp)
+    localStorage.setItem("planet-moons", uniqueMoons)
+    localStorage.setItem("planet-index", planetIndex)
     console.log(localStorage);
     window.location.href = "./planet.html"
   
@@ -186,12 +204,12 @@ const changeColorOnPlanet = (index) => {
 }
 
 //Back button
-backBtn.addEventListener("click", () => {
-  galaxyWrapper.classList.remove("hide")
-  infoWrapper.classList.add("hide")
-  //test
-  localStorage.clear();
-})
+// backBtn.addEventListener("click", () => {
+//   galaxyWrapper.classList.remove("hide")
+//   infoWrapper.classList.add("hide")
+//   //test
+//   localStorage.clear();
+// })
 
 
 
