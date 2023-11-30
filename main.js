@@ -58,15 +58,16 @@ for (const [index, item] of data.bodies.entries()) {
     const planet = document.createElement("div")
     const link = document.createElement("a")
     // const planetName = item.name
-    // planet.append(planetName)
+    // planet.append(planetName) and add +1 on every class made
     planet.classList.add(`planet-${planetNumber++}`)
     planet.classList.add("planet")
     
     planetWrapper?.append(planet)
-
+      //click event on the created "planet"
     planet.addEventListener("click", (event) => {
       console.log(event.target);
 
+      //Empty every field
       planetName.textContent = "";
       planetLatinName.textContent = "";
       planetDescription.textContent = "";
@@ -84,6 +85,7 @@ for (const [index, item] of data.bodies.entries()) {
 }
 }
 
+//Print out the info on each planet using this function
 const getInfo = async (index, apikey) => {
     let response = await (fetch('https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com/bodies', {
         method: 'GET',
@@ -107,7 +109,7 @@ const getInfo = async (index, apikey) => {
     circumference.textContent = `${data.bodies[index].circumference} KM`;
     maxTemp.textContent = `${data.bodies[index].temp.day}C`;
     minTemp.textContent = `${data.bodies[index].temp.night}C`;
-    //Using set constructor to store unique values and stores it in "uniqueMoons" as a new array with doubles removed
+    //Using Set constructor to store unique values in the array and store it in "uniqueMoons" as a new array with doubles removed
     const uniqueMoons = [...new Set(data.bodies[index].moons)];
     console.log("dataMoons", uniqueMoons);
     
