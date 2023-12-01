@@ -1,6 +1,6 @@
-/* Kvar att göra..
-ändra fonts, kolla storlek, justera linjer */
-
+@import url(https://fonts.googleapis.com/css?family=Lora:regular,500,600,700,italic,500italic,600italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=Secular+One:regular);
 *{ 
     margin: 0;
     padding: 0; 
@@ -26,10 +26,13 @@ li {
 h1{
     font-size: 3.75rem;
     color: rgba(255, 255, 255, 0.8);
+    font-family: 'Secular One', sans-serif;
+    font-weight: 400;
 }
 
 h2{
    font-size: 24px;
+   font-family: 'Lora', sans-serif;
    letter-spacing: 0.8rem; 
    color: rgba(255, 208, 41, 0.8);
 }
@@ -37,6 +40,8 @@ h2{
 h3{
     font-size: 18px;
     color: rgba(255, 255, 255, 0.8);
+
+    font-family: 'Secular One', sans-serif;
     font-weight: 400;
     
 }
@@ -44,6 +49,8 @@ h3{
 span {
     font-size: 18px;
     color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 .line{
@@ -55,6 +62,8 @@ span {
 p {
     font-size: 18px;
     font-weight: 300;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: ro;
     color: rgba(255, 255, 255, 0.8);
 }
 
