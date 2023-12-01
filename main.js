@@ -6,30 +6,31 @@ const infoWrapper = document.querySelector(".wrapper");
 
 
 let planetNumber = 1
+//Clears localStorage on page load
 localStorage.clear();
-//Get the API key and place it in a variable
-let API_KEY = fetch(
-  "https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com/keys",
-  {
-    method: "POST",
-  }
-)
-  .then((response) => response.json())
-  .then((data) => {
+//function to fetch API_KEY and return it
+const fetchKey = async () => {
+  //Get KEY using POST method
+  const response = await fetch(
+    "https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com/keys",
+    {
+      method: "POST",
+    });
+    
+    const data = await response.json()
     console.log("fetch data: ", data.key);
     return data.key
-  });
 
 
-//Pga att API_KEY returnerar en promise så måste vi resolve:a den först innan vi får nyckeln vilket vi kan göra med then.
-//We must resolve API_KEY first before we use it becuase API_KEY returns a promise.
+}
+//Initialize Page using this function
+const initPage = async () => {
+//We must resolve API_KEY first before we use it because API_KEY returns a promise.
 //Pass key as an argument in the get planet function to initialize page
-API_KEY.then(requestedKey => {
-    console.log("requestedKey: ", requestedKey);
-    //The "initialize" page happens here
-    getPlanet(requestedKey);
+  const requestedKey = await fetchKey();
+  await getPlanet(requestedKey)
 
-})
+}
 
 
 
@@ -130,5 +131,5 @@ saturnus?.append(saturnusRing)
 
 
 
-
+initPage()
 
