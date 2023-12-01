@@ -12,6 +12,7 @@ const sidePlanet = document.querySelector(".sideplanet")
 let planetIndex = ""
 console.log("planetIndex", planetIndex);
 
+//Get the stored items in localStorage.
 planetName.textContent = localStorage.getItem("planet-name")
 planetLatinName.textContent = localStorage.getItem("planet-latin-name")
 planetDescription.textContent = localStorage.getItem("planet-description")

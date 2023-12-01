@@ -32,8 +32,6 @@ const initPage = async () => {
 
 }
 
-
-
 //Function that creates and prints out the planets.
 const getPlanet = async (apiKey) => {
     const API_KEY = apiKey
@@ -51,14 +49,12 @@ for (const [index, item] of data.bodies.entries()) {
     createRing()
     const planet = document.createElement("div")
     
-    // planet.append(planetName) and add +1 on every class made
+    //Add +1 on every class made
     planet.classList.add(`planet-${planetNumber++}`)
     planet.classList.add("planet")
-
     planetWrapper?.append(planet)
     
- 
-      //click event on the created "planet"
+      //Click event on the created "planet"
     planet.addEventListener("click", (event) => {
       console.log(event.target);
 
@@ -98,11 +94,12 @@ const getInfo = async (index, apikey) => {
     let planetMaxTemp = `${data.bodies[index].temp.day}C`;
     let planetMinTemp = `${data.bodies[index].temp.night}C`;
     let planetIndex = index;
-    //Using Set constructor to store unique values in the array and store it in "uniqueMoons" as a new array with doubles removed
+    //Using Set constructor to store unique values
+    //and spread operator to convert Set into an array and store it in "uniqueMoons" as a new array with doubles removed
     let uniqueMoons = [...new Set(data.bodies[index].moons)].join(" ").replaceAll(" ", ", ");
     console.log("dataMoons", uniqueMoons);
     
-    //Transfer to localStorage
+    //Populate localStorage
     localStorage.setItem("planet-name", planetName)
     localStorage.setItem("planet-latin-name", planetLatinName)
     localStorage.setItem("planet-description", planetDescription)
@@ -130,6 +127,6 @@ saturnus?.append(saturnusRing)
 }
 
 
-
+//Initialize Page
 initPage()
 
