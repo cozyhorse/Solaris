@@ -119,6 +119,7 @@ const getInfo = async (index, apikey) => {
 
 }
 
+//Create saturnus ring
 const createRing = () => {
 const saturnusRing = document.createElement("div")
 const saturnus = document.querySelector(".planet-7")
