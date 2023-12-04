@@ -1,3 +1,7 @@
+@import url(https://fonts.googleapis.com/css?family=Lora:regular,500,600,700,italic,500italic,600italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=Secular+One:regular);
+
 *{ 
     margin: 0;
     padding: 0; 
@@ -32,12 +36,15 @@ body {
     color: rgba(255, 255, 255, 1);
     font-size: 60px ;
     letter-spacing: 0.4rem;
+    font-family: 'Secular One', sans-serif;
+    font-weight: 400;
 }
 .header h2 {
     
     color: rgba(255, 208, 41, 1);
     font-size: 24px;
     letter-spacing: 0.8rem;
+    font-family: 'Lora', sans-serif;
 }
 
 
