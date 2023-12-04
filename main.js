@@ -23,6 +23,8 @@ const fetchKey = async () => {
 
 
 }
+
+
 //Initialize Page using this function
 const initPage = async () => {
 //We must resolve API_KEY first before we use it because API_KEY returns a promise.
