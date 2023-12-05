@@ -114,7 +114,7 @@ const getInfo = async (index, apikey) => {
     console.log(localStorage);
 
     //redirect to planet-page
-    window.location.href = "./planet-page/planet.html"
+    window.location.href = "./planet-page/planetinfo.html"
   
 
 }
