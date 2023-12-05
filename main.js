@@ -5,7 +5,7 @@ const infoWrapper = document.querySelector(".wrapper");
 
 
 
-let planetNumber = 1
+let planetNumber = 1;
 //Clears localStorage on page load
 localStorage.clear();
 //function to fetch API_KEY and return it
@@ -17,9 +17,9 @@ const fetchKey = async () => {
       method: "POST",
     });
     
-    const data = await response.json()
+    const data = await response.json();
     console.log("fetch data: ", data.key);
-    return data.key
+    return data.key;
 
 
 }
@@ -30,9 +30,9 @@ const initPage = async () => {
 //We must resolve API_KEY first before we use it because API_KEY returns a promise.
 //Pass key as an argument in the get planet function to initialize page
   const requestedKey = await fetchKey();
-  await getPlanet(requestedKey)
+  await getPlanet(requestedKey);
 
-}
+};
 
 //Function that creates and prints out the planets.
 const getPlanet = async (apiKey) => {
@@ -40,25 +40,25 @@ const getPlanet = async (apiKey) => {
     let resp = await fetch('https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com/bodies', {
     method: 'GET',
     headers: {'x-zocom':`${API_KEY}`}
-})
+});
 
-const data = await resp.json()
+const data = await resp.json();
 console.log("planets", data.bodies);
 //loop through key-value pair using .entries() on the array and assign them using "index" and "item"
 for (const [index, item] of data.bodies.entries()) {
   
-    console.log(`index: ${index}. Item: ${item.name}`);
-    createRing()
-    const planet = document.createElement("div")
+    // console.log(`index: ${index}. Item: ${item.name}`);
+    createRing();
+    const planet = document.createElement("div");
     
     //Add +1 on every class made
-    planet.classList.add(`planet-${planetNumber++}`)
-    planet.classList.add("planet")
-    planetWrapper?.append(planet)
+    planet.classList.add(`planet-${planetNumber++}`);
+    planet.classList.add("planet");
+    planetWrapper?.append(planet);
     
       //Click event on the created "planet"
     planet.addEventListener("click", (event) => {
-      console.log(event.target);
+      // console.log(event.target);
 
 
       //Get info on planet based on clicked index
@@ -74,9 +74,9 @@ const getInfo = async (index, apikey) => {
     let response = await (fetch('https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com/bodies', {
         method: 'GET',
         headers: {'x-zocom':`${apikey}`}
-    }))
+    }));
 
-    const data = await response.json()
+    const data = await response.json();
 
     // console.log("Data.name", data.bodies[index].name);
     // console.log("Data.temp", data.bodies[index].latinName);//latin namn
@@ -102,33 +102,33 @@ const getInfo = async (index, apikey) => {
     console.log("dataMoons", uniqueMoons);
     
     //Populate localStorage
-    localStorage.setItem("planet-name", planetName)
-    localStorage.setItem("planet-latin-name", planetLatinName)
-    localStorage.setItem("planet-description", planetDescription)
-    localStorage.setItem("planet-from-sun", planetFromSun)
-    localStorage.setItem("planet-circumference", planetCircumference)
-    localStorage.setItem("planet-max-temp", planetMaxTemp)
-    localStorage.setItem("planet-min-temp", planetMinTemp)
-    localStorage.setItem("planet-moons", uniqueMoons)
-    localStorage.setItem("planet-index", planetIndex)
+    localStorage.setItem("planet-name", planetName);
+    localStorage.setItem("planet-latin-name", planetLatinName);
+    localStorage.setItem("planet-description", planetDescription);
+    localStorage.setItem("planet-from-sun", planetFromSun);
+    localStorage.setItem("planet-circumference", planetCircumference);
+    localStorage.setItem("planet-max-temp", planetMaxTemp);
+    localStorage.setItem("planet-min-temp", planetMinTemp);
+    localStorage.setItem("planet-moons", uniqueMoons);
+    localStorage.setItem("planet-index", planetIndex);
     console.log(localStorage);
 
     //redirect to planet-page
-    window.location.href = "./planet-page/planetinfo.html"
+    window.location.href = "./planet-page/planetinfo.html";
   
 
 }
 
 //Create saturnus ring
 const createRing = () => {
-const saturnusRing = document.createElement("div")
-const saturnus = document.querySelector(".planet-7")
-saturnusRing.classList.add("ring")
-saturnus?.append(saturnusRing)
+const saturnusRing = document.createElement("div");
+const saturnus = document.querySelector(".planet-7");
+saturnusRing.classList.add("ring");
+saturnus?.append(saturnusRing);
 
-}
+};
 
 
 //Initialize Page
-initPage()
+initPage();
 

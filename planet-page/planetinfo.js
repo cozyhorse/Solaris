@@ -8,19 +8,19 @@ const planetMaxTemp = document.querySelector(".max-temp");
 const planetMinTemp = document.querySelector(".min-temp");
 const planetMoonList = document.querySelector(".moons");
 const planetBackBtn = document.querySelector("#back")
-const sidePlanet = document.querySelector(".sideplanet")
-let planetIndex = ""
+const sidePlanet = document.querySelector(".sideplanet");
+let planetIndex = "";
 console.log("planetIndex", planetIndex);
 
 //Get the stored items in localStorage. And print it.
-planetName.textContent = localStorage.getItem("planet-name")
-planetLatinName.textContent = localStorage.getItem("planet-latin-name")
-planetDescription.textContent = localStorage.getItem("planet-description")
-planetCircumference.textContent = localStorage.getItem("planet-circumference")
-planetFromSun.textContent = localStorage.getItem("planet-from-sun")
-planetMaxTemp.textContent = localStorage.getItem("planet-max-temp")
-planetMinTemp.textContent = localStorage.getItem("planet-min-temp")
-planetMoonList.textContent = localStorage.getItem("planet-moons")
+planetName.textContent = localStorage.getItem("planet-name");
+planetLatinName.textContent = localStorage.getItem("planet-latin-name");
+planetDescription.textContent = localStorage.getItem("planet-description");
+planetCircumference.textContent = localStorage.getItem("planet-circumference");
+planetFromSun.textContent = localStorage.getItem("planet-from-sun");
+planetMaxTemp.textContent = localStorage.getItem("planet-max-temp");
+planetMinTemp.textContent = localStorage.getItem("planet-min-temp");
+planetMoonList.textContent = localStorage.getItem("planet-moons");
 //convert to number
 planetIndex = Number(localStorage.getItem("planet-index"));
 console.log("planetIndexUpdate", planetIndex);
@@ -85,6 +85,6 @@ changeColorOnPlanet(planetIndex);
 
 //Go back to index.html and clear localStorage
 planetBackBtn.addEventListener("click", () => {
-    localStorage.clear()
-    window.location.href = "../index.html"
-})
+    localStorage.clear();
+    window.location.href = "../index.html";
+});
