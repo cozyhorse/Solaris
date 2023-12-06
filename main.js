@@ -89,13 +89,6 @@ const getInfo = async (index, apikey) => {
     // console.log("Data.temp", data.bodies[index].temp.night);//night
 
     //set values
-    let planetName = `${data.bodies[index].name}`;
-    let planetLatinName = `${data.bodies[index].latinName}`;
-    let planetDescription = data.bodies[index].desc;
-    let planetFromSun = `${data.bodies[index].distance} KM`;
-    let planetCircumference = `${data.bodies[index].circumference} KM`;
-    let planetMaxTemp = `${data.bodies[index].temp.day}C`;
-    let planetMinTemp = `${data.bodies[index].temp.night}C`;
     let planetIndex = index;
     //Using Set constructor to store unique values
     //and spread operator to convert Set into an array and store it in "uniqueMoons" as a new array with doubles removed
@@ -103,15 +96,15 @@ const getInfo = async (index, apikey) => {
     console.log("dataMoons", uniqueMoons);
     
     //Populate localStorage
-    localStorage.setItem("planet-name", planetName);
-    localStorage.setItem("planet-latin-name", planetLatinName);
-    localStorage.setItem("planet-description", planetDescription);
-    localStorage.setItem("planet-from-sun", planetFromSun);
-    localStorage.setItem("planet-circumference", planetCircumference);
-    localStorage.setItem("planet-max-temp", planetMaxTemp);
-    localStorage.setItem("planet-min-temp", planetMinTemp);
+    localStorage.setItem("planet-name", `${data.bodies[index].name}`);
+    localStorage.setItem("planet-latin-name", `${data.bodies[index].latinName}`);
+    localStorage.setItem("planet-description", data.bodies[index].desc);
+    localStorage.setItem("planet-from-sun", `${data.bodies[index].distance} KM`);
+    localStorage.setItem("planet-circumference", `${data.bodies[index].circumference} KM`);
+    localStorage.setItem("planet-max-temp", `${data.bodies[index].temp.day}C`);
+    localStorage.setItem("planet-min-temp", `${data.bodies[index].temp.night}C`);
     localStorage.setItem("planet-moons", uniqueMoons);
-    localStorage.setItem("planet-index", planetIndex);
+    localStorage.setItem("planet-index", index);
     console.log(localStorage);
 
     //redirect to planet-page
