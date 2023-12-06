@@ -29,8 +29,7 @@ const fetchKey = async () => {
 const initPage = async () => {
 //We must resolve API_KEY first before we use it because API_KEY returns a promise.
 //Pass key as an argument in the get planet function to initialize page
-  const API_KEY = await fetchKey();
-  await getPlanet(API_KEY);
+  getPlanet(await fetchKey());
 
 };
 
@@ -88,8 +87,6 @@ const getInfo = async (index, apikey) => {
     // console.log("Data.temp", data.bodies[index].temp.day);//night
     // console.log("Data.temp", data.bodies[index].temp.night);//night
 
-    //set values
-    let planetIndex = index;
     //Using Set constructor to store unique values
     //and spread operator to convert Set into an array and store it in "uniqueMoons" as a new array with doubles removed
     let uniqueMoons = [...new Set(data.bodies[index].moons)].join(" ").replaceAll(" ", ", ");
