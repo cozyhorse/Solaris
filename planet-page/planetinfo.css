@@ -64,7 +64,7 @@ p {
     font-family: 'Roboto Condensed', sans-serif;
     line-height: 30.6px ;
     color: rgba(255, 255, 255, 0.8);
-    overflow: auto;
+
 }
 
 .wrapper{
@@ -80,7 +80,7 @@ p {
     radial-gradient(white, rgba(255, 255, 255, .1) 0px, transparent 10px);
 
     background-size: 490px 560px, 317px 387px, 268px 265px;
-    background-position: 0 0, 40px 64px, 133px 225px;
+    background-position: 0 0, 40px 64px, 133px 225px; 
 }
 
 
