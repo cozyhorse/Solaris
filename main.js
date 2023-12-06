@@ -78,15 +78,6 @@ const getInfo = async (index, apikey) => {
 
     const data = await response.json();
 
-    // console.log("Data.name", data.bodies[index].name);
-    // console.log("Data.temp", data.bodies[index].latinName);//latin namn
-    // console.log("Data.desc", data.bodies[index].desc);
-    // console.log("Data.distance", data.bodies[index].distance)
-    // console.log("Data.circumference", data.bodies[index].circumference);
-    // console.log("Data.Moons", data.bodies[index].moons);
-    // console.log("Data.temp", data.bodies[index].temp.day);//night
-    // console.log("Data.temp", data.bodies[index].temp.night);//night
-
     //Using Set constructor to store unique values
     //and spread operator to convert Set into an array and store it in "uniqueMoons" as a new array with doubles removed
     let uniqueMoons = [...new Set(data.bodies[index].moons)].join(" ").replaceAll(" ", ", ");
