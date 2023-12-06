@@ -29,13 +29,14 @@ const fetchKey = async () => {
 const initPage = async () => {
 //We must resolve API_KEY first before we use it because API_KEY returns a promise.
 //Pass key as an argument in the get planet function to initialize page
-  const requestedKey = await fetchKey();
-  await getPlanet(requestedKey);
+  const API_KEY = await fetchKey();
+  await getPlanet(API_KEY);
 
 };
 
 //Function that creates and prints out the planets.
 const getPlanet = async (apiKey) => {
+  //Store api key in API_KEY
     const API_KEY = apiKey
     let resp = await fetch('https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com/bodies', {
     method: 'GET',
