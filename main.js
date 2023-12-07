@@ -3,8 +3,6 @@ const planetWrapper = document.querySelector(".planetWrapper");
 const galaxyWrapper = document.querySelector(".galaxy-wrapper");
 const infoWrapper = document.querySelector(".wrapper");
 
-
-
 let planetNumber = 1;
 //Clears localStorage on page load
 localStorage.clear();
@@ -24,13 +22,11 @@ const fetchKey = async () => {
 
 }
 
-
 //Initialize Page using this function
 const initPage = async () => {
 //We must resolve API_KEY first before we use it because API_KEY returns a promise.
 //Pass key as an argument in the get planet function to initialize page
   getPlanet(await fetchKey());
-
 };
 
 //Function that creates and prints out the planets.
@@ -62,7 +58,7 @@ for (const [index, item] of data.bodies.entries()) {
 
 
       //Get info on planet based on clicked index
-      getInfo(index, API_KEY);
+      getInfo(index, data);
 
     });
     
@@ -70,14 +66,8 @@ for (const [index, item] of data.bodies.entries()) {
 }
 
 //Print out the info on each planet using this function
-const getInfo = async (index, apikey) => {
-    let response = await (fetch('https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com/bodies', {
-        method: 'GET',
-        headers: {'x-zocom':`${apikey}`}
-    }));
-
-    const data = await response.json();
-
+const getInfo = async (index, data) => {
+    console.log("getInfo Data", data);
     //Using Set constructor to store unique values
     //and spread operator to convert Set into an array and store it in "uniqueMoons" as a new array with doubles removed
     let uniqueMoons = [...new Set(data.bodies[index].moons)].join(" ").replaceAll(" ", ", ");
@@ -98,7 +88,6 @@ const getInfo = async (index, apikey) => {
     //redirect to planet-page
     window.location.href = "./planet-page/planetinfo.html";
   
-
 }
 
 //Create saturnus ring
