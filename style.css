@@ -62,6 +62,12 @@ body {
 
 .planet {
     border-radius: 50%;
+    transition: all 500ms ease-in-out;
+}
+
+.planet:hover{
+    scale: 1.2;
+    
 }
 
 /* Sun */
