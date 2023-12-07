@@ -47,7 +47,7 @@ for (const [index, item] of data.bodies.entries()) {
     createRing();
     const planet = document.createElement("div");
     
-    //Add +1 on every class made
+    //Add +1 on every "planet-" class made
     planet.classList.add(`planet-${planetNumber++}`);
     planet.classList.add("planet");
     planetWrapper?.append(planet);
