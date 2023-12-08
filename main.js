@@ -41,7 +41,7 @@ const getPlanet = async (apiKey) => {
 const data = await resp.json();
 console.log("planets", data.bodies);
 //loop through key-value pair using .entries() on the array and assign them using "index" and "item"
-for (const [index, item] of data.bodies.entries()) {
+for (const [index] of data.bodies.entries()) {
   
     // console.log(`index: ${index}. Item: ${item.name}`);
     createRing();
@@ -53,7 +53,7 @@ for (const [index, item] of data.bodies.entries()) {
     planetWrapper?.append(planet);
     
       //Click event on the created "planet"
-    planet.addEventListener("click", (event) => {
+    planet.addEventListener("click", () => {
       // console.log(event.target);
 
 
